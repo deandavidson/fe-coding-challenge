@@ -23,13 +23,10 @@ const IndexPage = () => {
       },
     };
     const response = await fetch(postUrl, fetchConfig);
-    console.log(response);
     if (response.ok) {
       const data =  await response.json();
-      console.log(data);
       setUser1(data)
     }
-    console.log(user1)
     };
     fetchUser1();
   }, [token]);
@@ -44,13 +41,10 @@ const IndexPage = () => {
       },
     };
     const response = await fetch(postUrl, fetchConfig);
-    console.log(response);
     if (response.ok) {
       const data =  await response.json();
-      console.log(data);
       setUser2(data)
     }
-    console.log(user2)
     };
     fetchUser2();
   }, [token]);
@@ -65,17 +59,13 @@ const IndexPage = () => {
       },
     };
     const response = await fetch(postUrl, fetchConfig);
-    console.log(response);
     if (response.ok) {
       const data =  await response.json();
-      console.log(data);
       setUser3(data)
     }
-    console.log(user3)
     };
     fetchUser3();
   }, [token]);
-  console.log("looooooooook here", user1.name)
 
 
   return (

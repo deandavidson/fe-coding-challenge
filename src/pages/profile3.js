@@ -18,13 +18,10 @@ const Home = () => {
       },
     };
     const response = await fetch(postUrl, fetchConfig);
-    console.log(response);
     if (response.ok) {
       const data =  await response.json();
-      console.log(data);
       setUser3(data)
     }
-    console.log(user3)
     };
     fetchUser3();
   }, [token]);
