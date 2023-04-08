@@ -1,5 +1,9 @@
 import * as React from "react"
 import { useEffect, useState } from "react";
+import { StaticImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const IndexPage = () => {
 
@@ -7,7 +11,7 @@ const IndexPage = () => {
   const [user2, setUser2] = useState('');
   const [user3, setUser3] = useState('');
 
-  const token = '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'
+  const token = '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'
 
   useEffect(() => {
     const fetchUser1 = async () => {
@@ -93,7 +97,7 @@ const IndexPage = () => {
               <p class="card-text">{user2.login}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted"><button>View Profile</button></small>
+            <small class="text-muted"><button><Link to="/profile2/">View Profile</Link></button></small>
             </div>
           </div>
           <div class="card">
@@ -103,7 +107,7 @@ const IndexPage = () => {
               <p class="card-text">{user1.login}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted"><button>View Profile</button></small>
+            <small class="text-muted"><button><Link to="/profile1/">View Profile</Link></button></small>
             </div>
           </div>
           <div class="card">
@@ -113,7 +117,7 @@ const IndexPage = () => {
               <p class="card-text">{user3.login}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted"><button>View Profile</button></small>
+            <small class="text-muted"><button><Link to="/profile3/">View Profile</Link></button></small>
             </div>
           </div>
 
