@@ -5,15 +5,12 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import 'bootstrap/dist/css/bootstrap.css';
-import { Button } from "react-bootstrap";
-import { Card } from "react-bootstrap";
-import { CardGroup} from "react-bootstrap";
 
 const IndexPage = () => {
 
   const [users, setUsers] = useState([]);
 
-  const token = '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'
+  const token = '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'
 
   useEffect(() => {
     const fetchUsers = async () => {

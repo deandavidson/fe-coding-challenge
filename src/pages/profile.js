@@ -9,7 +9,7 @@ const Home = ({location}) => {
   const userDetail = location.state;
 
   const [user, setUser] = useState('');
-  const token = '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'
+  const token = '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'
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -37,7 +37,7 @@ const Home = ({location}) => {
       <div className="card p-4">
       <div className=" image d-flex flex-column justify-content-center align-items-center">
       <button className="btn btn-secondary">
-      <img src={user.avatar_url} height="100" width="100" />
+      <img class="circular--square" src={user.avatar_url} height="100" width="100" />
       </button> <span className="name mt-3">{user.name}</span>
       <span className="idd">@{user.login}</span>
       <div className="d-flex flex-row justify-content-center align-items-center gap-2">
@@ -63,7 +63,7 @@ const Home = ({location}) => {
       <div className=" px-2 rounded mt-4 date ">
       <span className="join">Joined {user.created_at}</span>
       </div>
-      <button><Link
+      <button class="button-17"><Link
                     className="detail-link"
                     to={`/`}
                     >
