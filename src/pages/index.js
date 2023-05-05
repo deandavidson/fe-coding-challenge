@@ -4,18 +4,20 @@ import { StaticImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
+import 'bootstrap/dist/css/bootstrap.css';
+import { Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { CardGroup} from "react-bootstrap";
 
 const IndexPage = () => {
 
-  const [user1, setUser1] = useState('');
-  const [user2, setUser2] = useState('');
-  const [user3, setUser3] = useState('');
+  const [users, setUsers] = useState([]);
 
-  const token = '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'
+  const token = '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'
 
   useEffect(() => {
-    const fetchUser1 = async () => {
-    const postUrl = 'https://api.github.com/users/deandavidson';
+    const fetchUsers = async () => {
+    const postUrl = 'https://api.github.com/users';
     const fetchConfig = {
       method: "GET",
       headers: {
@@ -25,100 +27,41 @@ const IndexPage = () => {
     const response = await fetch(postUrl, fetchConfig);
     if (response.ok) {
       const data =  await response.json();
-      setUser1(data)
+      setUsers(data)
     }
     };
-    fetchUser1();
+    fetchUsers();
   }, [token]);
 
-  useEffect(() => {
-    const fetchUser2 = async () => {
-    const postUrl = 'https://api.github.com/users/nadinagray';
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(postUrl, fetchConfig);
-    if (response.ok) {
-      const data =  await response.json();
-      setUser2(data)
-    }
-    };
-    fetchUser2();
-  }, [token]);
+  console.log(users)
 
-  useEffect(() => {
-    const fetchUser3 = async () => {
-    const postUrl = 'https://api.github.com/users/brandsoulmates';
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(postUrl, fetchConfig);
-    if (response.ok) {
-      const data =  await response.json();
-      setUser3(data)
-    }
-    };
-    fetchUser3();
-  }, [token]);
 
 
   return (
     <main>
-        <head>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-
-        <title>Github Users</title>
-      </head>
-      <body>
-        <h1>Github Users</h1>
-        <div class="card-group">
-          <div class="card">
-            <img class="card-img-top" src={user2.avatar_url} alt="Card image cap" />
-            <div class="card-body">
-              <h5 class="card-title">{user2.name}</h5>
-              <p class="card-text">{user2.login}</p>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+      {users.map((user) => {
+        return (
+        <div className="col" key={user.id}>
+            <div className="card">
+              <img src={user.avatar_url} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title" >{user.login}</h5>
+                <p className="card-text"></p>
+                <button className="detail-button1">
+                  <Link
+                    className="detail-link"
+                    to={`/profile`}
+                    state={user}
+                    >
+                    Profile Detail
+                  </Link>
+                </button>
+              </div>
             </div>
-            <div class="card-footer">
-            <small class="text-muted"><button><Link to="/profile2/">View Profile</Link></button></small>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src={user1.avatar_url} alt="Card image cap" />
-            <div class="card-body">
-              <h5 class="card-title">{user1.name}</h5>
-              <p class="card-text">{user1.login}</p>
-            </div>
-            <div class="card-footer">
-            <small class="text-muted"><button><Link to="/profile1/">View Profile</Link></button></small>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src={user3.avatar_url} alt="Card image cap" />
-            <div class="card-body">
-              <h5 class="card-title">{user3.name}</h5>
-              <p class="card-text">{user3.login}</p>
-            </div>
-            <div class="card-footer">
-            <small class="text-muted"><button><Link to="/profile3/">View Profile</Link></button></small>
-            </div>
-          </div>
-
-
         </div>
-
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      </body>
+        )})}
+      </div>
     </main>
   )
 }
