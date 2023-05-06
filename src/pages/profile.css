@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0
 }
@@ -92,7 +92,7 @@ hr .new1 {
 }
 
 .button-17 {
-    margin: 10px;
+    margin: px;
   align-items: center;
   appearance: none;
   background-color: #fff;
@@ -159,4 +159,4 @@ hr .new1 {
 
 .button-17:disabled {
   box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-}
+} */

@@ -2,7 +2,7 @@ import * as React from "react"
 import { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import 'bootstrap/dist/css/bootstrap.css';
-import "./custom.css"
+import "./profile.css"
 
 const Home = ({location}) => {
   console.log("state", location.state)
