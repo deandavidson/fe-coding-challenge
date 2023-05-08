@@ -10,7 +10,7 @@ const IndexPage = () => {
 
   const [users, setUsers] = useState([]);
 
-  const token = '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'
+  const token = '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'
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -29,6 +29,12 @@ const IndexPage = () => {
     };
     fetchUsers();
   }, [token]);
+
+	const list = [];
+	for (let user in users){
+		list.push(user)
+	}
+  console.log("list", list)
 
   console.log(users)
 
