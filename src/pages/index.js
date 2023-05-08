@@ -10,7 +10,7 @@ const IndexPage = () => {
 
   const [users, setUsers] = useState([]);
 
-  const token = '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'
+  const token = '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'
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -30,18 +30,12 @@ const IndexPage = () => {
     fetchUsers();
   }, [token]);
 
-	const list = [];
-	for (let user in users){
-		list.push(user)
-	}
-  console.log("list", list)
-
-  console.log(users)
+  console.log("list of users", users)
 
   return (
 	<main>
 		<div className="three-columns-grid">
-		{users.map((user) => {
+		{users.map((user, index) => {
 					return (
 			<div className="content">
 				<div className="card">
@@ -56,7 +50,11 @@ const IndexPage = () => {
 						<Link
 							className="detail-link"
 							to={`/profile`}
-							state={user}
+							state={{
+								user: user,
+								users: users,
+								index: index,
+							}}
 							>
 							Profile Detail
 						</Link>
