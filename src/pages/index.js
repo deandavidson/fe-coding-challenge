@@ -32,46 +32,16 @@ const IndexPage = () => {
 
   console.log(users)
 
-
-
-//   return (
-//     <main>
-//       <div className="row row-cols-1 row-cols-md-3 g-4">
-//       {users.map((user) => {
-//         return (
-//         <div className="col" key={user.id}>
-//             <div className="card">
-//               <img src={user.avatar_url} className="card-img-top" alt="..." />
-//               <div className="card-body">
-//                 <h5 className="card-title" >{user.login}</h5>
-//                 <p className="card-text"></p>
-//                 <button className="detail-button1">
-//                   <Link
-//                     className="detail-link"
-//                     to={`/profile`}
-//                     state={user}
-//                     >
-//                     Profile Detail
-//                   </Link>
-//                 </button>
-//               </div>
-//             </div>
-//         </div>
-//         )})}
-//       </div>
-//     </main>
-//   )
-
   return (
 	<main>
-		<div class="three-columns-grid">
+		<div className="three-columns-grid">
 		{users.map((user) => {
 					return (
-			<div class="content">
-				<div class="card">
+			<div className="content">
+				<div className="card">
 						<>
 							<img src={user.avatar_url} alt="Avatar" />
-							<div class="container">
+							<div className="container">
 								<h4><b>@{user.login}</b></h4>
 								<p></p>
 							</div>
