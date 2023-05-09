@@ -5,14 +5,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./profile.css"
 
 const Home = ({location}) => {
-  console.log("state", location.state)
   const {user, users, index} = location.state
   const prevUser = users[index - 1] ? users[index - 1] : users[users.length - 1]
   const nextUser = users[index + 1] ? users[index + 1] : users[0]
   const prevIndex = users[index - 1] ? index - 1 : 0
   const nextIndex = users[index + 1] ? index + 1 : users.length + 1
   const [userProfile, setUserProfile] = useState('');
-  const token = `${process.env.GITHUB_API_TOKEN}`
+  const apiKey = `${process.env.GITHUB_API_TOKEN}`
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -20,7 +19,7 @@ const Home = ({location}) => {
     const fetchConfig = {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${apiKey}`,
       },
     };
     const response = await fetch(postUrl, fetchConfig);

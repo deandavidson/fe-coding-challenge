@@ -10,7 +10,7 @@ const IndexPage = () => {
 
   const [users, setUsers] = useState([]);
 
-  const token = `${process.env.GITHUB_API_TOKEN}`
+  const apiKey = `${process.env.GITHUB_API_TOKEN}`
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -18,7 +18,7 @@ const IndexPage = () => {
     const fetchConfig = {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${apiKey}`,
       },
     };
     const response = await fetch(postUrl, fetchConfig);
@@ -28,9 +28,7 @@ const IndexPage = () => {
     }
     };
     fetchUsers();
-  }, [token]);
-
-  console.log("list of users", users)
+  }, [apiKey]);
 
   return (
 	<main>
