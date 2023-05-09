@@ -10,7 +10,7 @@ const IndexPage = () => {
 
   const [users, setUsers] = useState([]);
 
-  const token = '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'
+  const token = `${process.env.GITHUB_API_TOKEN}`
 
   useEffect(() => {
     const fetchUsers = async () => {

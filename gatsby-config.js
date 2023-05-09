@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.development`,
+});
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
